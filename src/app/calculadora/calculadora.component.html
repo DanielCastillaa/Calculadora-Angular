@@ -1,0 +1,26 @@
+<h1>Calculadora</h1>
+<div>
+    <input type="number"  [(ngModel)]="num1" placeholder="Ingresar numero 1">
+    <input type="number"  [(ngModel)]="num2" placeholder="Ingresar numero 2">
+</div>
+  <div>
+   <button (click)="sumar()">Sumar</button>
+   <button (click)="dividir()">Dividir</button>
+   <button (click)="multiplicar()">Multiplicar</button>
+   <button (click)="restar()">Restar</button>
+  </div>
+
+  <div>
+   <button *ngIf="mostrarResultado"></button>
+       <h2>Resultado: {{ resultado }} </h2>
+  </div>
+  <button (click)="mostrarLista = !mostrarLista">
+    {{ mostrarLista ? 'Ocultar lista' : 'Mostrar lista' }}
+  </button>
+  
+  <div *ngIf="mostrarLista">
+    <h2>Últimos resultados:</h2>
+    <ul>
+      <li *ngFor="let resultado of resultados">{{ resultado }}</li>
+    </ul>
+  </div>
